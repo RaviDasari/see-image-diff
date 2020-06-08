@@ -50,7 +50,7 @@ const optionList = [
 const sections = [
     {
         header: 'Image comparison utility',
-        content: `It takes two folders, {italic base} and {italic current} full of images with same {bold names} and ganarates a {bold diff} folder in given destication location with the same {bold names}. Also, it generates a {bold JSON} blob and a {italic neat} web app to navigate through this image files. It uses {italic jimp} npm module to compare the images.`
+        content: `It takes two folders, {italic base} and {italic current} full of images with same {bold names} and ganarates a {bold diff} folder in given destination location with the same {bold names}. Also, it generates a {bold JSON} blob and a {italic neat} web app to navigate through this image files. It uses {italic jimp} npm module to compare the images.`
     },
     {
         header: 'Synopsis',

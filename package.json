@@ -1,59 +1,71 @@
 {
-    "name": "screenshot-test",
-    "version": "1.0.0",
-    "description": "Screenshot comparison tool with a nice UI and diff features.",
-    "main": "index.js",
-    "scripts": {
-        "build": "parcel build web/index.html",
-        "start": "parcel serve web/index.html",
-        "eslint": "eslint web",
-        "eslint-fix": "eslint web --fix"
-    },
-    "keywords": [
-        "screenshot",
-        "comparison",
-        "diff"
-    ],
-    "bin": "./bin.js",
-    "author": "Ravi Dasari",
-    "license": "MIT",
-    "devDependencies": {
-        "@types/react": "^16.4.9",
-        "@types/react-dom": "^16.0.7",
-        "ava": "^0.25.0",
-        "chalk": "^4.0.0",
-        "eslint": "^7.1.0",
-        "eslint-config-standard": "^14.1.1",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-react": "^7.20.0",
-        "eslint-plugin-standard": "^4.0.1",
-        "log-symbols": "^4.0.0",
-        "node-emoji": "^1.10.0",
-        "node-sass": "^4.9.2",
-        "parcel": "^2.0.0-alpha.3.2",
-        "parcel-plugin-static-files-copy": "^2.3.1",
-        "sass": "^1.26.5",
-        "tslint": "^5.11.0",
-        "tslint-react": "^3.6.0",
-        "typescript": "^3.0.1",
-        "xo": "^0.22.0"
-    },
-    "dependencies": {
-        "@elastic/datemath": "^5.0.3",
-        "@elastic/eui": "^25.0.0",
-        "axios": "^0.19.0-beta.1",
-        "command-line-args": "^5.1.1",
-        "command-line-usage": "^6.1.0",
-        "jimp": "^0.12.1",
-        "lodash": "^4.17.15",
-        "moment": "^2.26.0",
-        "ncp": "^2.0.0",
-        "p-settle": "^4.1.0",
-        "parcel-bundler": "latest",
-        "react": "16.x",
-        "react-dom": "^16.4.2",
-        "react-spring": "^9.0.0-rc.3"
-    }
+  "name": "see-image-diff",
+  "version": "0.1.0",
+  "description": "Image comparison tool with a nice UI and diff features.",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build web/index.html",
+    "start": "parcel serve web/index.html",
+    "eslint": "eslint web",
+    "eslint-fix": "eslint web --fix"
+  },
+  "keywords": [
+    "image",
+    "compare",
+    "screenshot",
+    "comparison",
+    "diff"
+  ],
+  "bin": {
+    "compare-images": "bin.js"
+  },
+  "author": "Ravi Dasari",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.4.9",
+    "@types/react-dom": "^16.0.7",
+    "ava": "^0.25.0",
+    "chalk": "^4.0.0",
+    "eslint": "^7.1.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "log-symbols": "^4.0.0",
+    "node-emoji": "^1.10.0",
+    "node-sass": "^4.9.2",
+    "parcel": "^2.0.0-alpha.3.2",
+    "parcel-plugin-static-files-copy": "^2.3.1",
+    "sass": "^1.26.5",
+    "tslint": "^5.11.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.1",
+    "xo": "^0.22.0"
+  },
+  "dependencies": {
+    "@elastic/datemath": "^5.0.3",
+    "@elastic/eui": "^25.0.0",
+    "axios": "^0.19.0-beta.1",
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.0",
+    "jimp": "^0.12.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.26.0",
+    "ncp": "^2.0.0",
+    "p-settle": "^4.1.0",
+    "parcel-bundler": "latest",
+    "react": "16.x",
+    "react-dom": "^16.4.2",
+    "react-spring": "^9.0.0-rc.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaviDasari/compare-images.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaviDasari/compare-images/issues"
+  },
+  "homepage": "https://github.com/RaviDasari/compare-images#readme"
 }
