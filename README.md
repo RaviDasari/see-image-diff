@@ -1,13 +1,13 @@
-# Compare Images
+# See Image Diff
 It takes two folders, *base* and *current* full of wonderful images with same **names** and ganarates a **diff** folder in given destination folder with the same **names**. Also, it generates a **JSON** blob with the comparison info and a *neat* web app to navigate through this image files. This uses [jimp](https://github.com/oliver-moran/jimp) to compare the images which uses an awesome library [pixelmatch](https://github.com/mapbox/pixelmatch).
 
 To install...
 ```
-npm install compare-images
+npm install see-image-diff
 
 (or)
 
-yarn add compare-images
+yarn add see-image-diff
 ```
 
 Usage...
@@ -22,9 +22,9 @@ Image comparison utility
 
 Synopsis
 
-  $ compare-images --baseDir ./base --currentDir ./current --destDir ./diff     
+  $ see-image-diff --baseDir ./base --currentDir ./current --destDir ./diff     
   [--reportFileName "results.json"]                                             
-  $ compare-images --help                                                       
+  $ see-image-diff --help                                                       
 
 Options
 

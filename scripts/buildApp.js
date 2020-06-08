@@ -5,7 +5,7 @@ const Path = require('path');
 const entryFiles = Path.join(__dirname, '../web/index.html');
 
 let buildOptions = {
-    outDir: './dist/compare-images',
+    outDir: './dist/see-image-diff',
     outFile: 'index.html',
     publicUrl: '/',
     watch: false,

@@ -55,8 +55,8 @@ const sections = [
     {
         header: 'Synopsis',
         content: [
-            '$ compare-images {bold --baseDir} {underline ./base} {bold --currentDir} {underline ./current} {bold --destDir} {underline ./diff} [{bold --reportFileName} {underline "results.json"}]',
-            '$ compare-images {bold --help}'
+            '$ see-image-diff {bold --baseDir} {underline ./base} {bold --currentDir} {underline ./current} {bold --destDir} {underline ./diff} [{bold --reportFileName} {underline "results.json"}]',
+            '$ see-image-diff {bold --help}'
         ]
     },
     {

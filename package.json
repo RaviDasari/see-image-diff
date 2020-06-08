@@ -17,7 +17,7 @@
     "diff"
   ],
   "bin": {
-    "compare-images": "bin.js"
+    "see-image-diff": "bin.js"
   },
   "author": "Ravi Dasari",
   "license": "MIT",
@@ -62,10 +62,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RaviDasari/compare-images.git"
+    "url": "git+https://github.com/RaviDasari/see-image-diff.git"
   },
   "bugs": {
-    "url": "https://github.com/RaviDasari/compare-images/issues"
+    "url": "https://github.com/RaviDasari/see-image-diff/issues"
   },
-  "homepage": "https://github.com/RaviDasari/compare-images#readme"
+  "homepage": "https://github.com/RaviDasari/see-image-diff#readme"
 }
