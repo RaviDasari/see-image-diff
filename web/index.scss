@@ -1,0 +1,92 @@
+
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-preview {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.tile-container {
+    margin-top: 10px;
+}
+
+.thumbnail {
+    cursor: pointer;
+    width: 20%;
+    min-width: 200px;
+    padding: 5px;
+    margin: 5px;
+    background-color: black;
+    display: inline-block;
+    vertical-align: text-top;
+    img {
+        width: 100%;
+    }
+    .caption {
+        word-wrap: break-word;
+        text-align: center;
+    }
+    &.selected {
+        background-color: white;
+        color: black;
+    }
+}
+
+.no-preview {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+    color: greenyellow;
+}
+
+// new styles
+
+.euiPage {
+    padding: 0px;
+}
+
+.euiPageBody {
+    margin-top: 50px;
+}
+
+.thumbnail-container {
+    margin-top: 20px;
+}
+
+.no-data-container {
+    width: 100%;
+    margin: 100px auto 100px auto;
+}
+
+.euiModal--maxWidth-default {
+    max-width: 100%;
+}
+
+.euiButtonEmpty {
+    display: none;
+}
+
+.selected-card {
+    border-color: lightgreen;
+}
+
+.gallery-container {
+    min-height: 500px;
+    .euiLoadingSpinner {
+        margin-top: 240px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.inline-block {
+    display: inline-block;
+}
