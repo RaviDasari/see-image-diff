@@ -2,7 +2,7 @@
 const commandLineUsage = require('command-line-usage')
 const commandLineArgs = require('command-line-args')
 const compareImages = require('./scripts/compareImages');
-const buildApp = require('./scripts/buildApp')
+// const buildApp = require('./scripts/buildApp')
 const copyFiles = require('./scripts/copyFiles')
 
 const optionList = [
