@@ -15,7 +15,7 @@ function fileExists(file) {
 
 async function createFolder(dir) {
     if (!oldFs.existsSync(dir)){
-        await fs.mkdir(dir);
+        await fs.mkdir(dir, { recursive: true });
     }
 }
 

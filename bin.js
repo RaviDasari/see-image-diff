@@ -107,7 +107,7 @@ function runAyncFunc(message, runner) {
 
 async function runActions(options) {
     await runAyncFunc('comparing images!', () => compareImages(options));
-    await runAyncFunc('building App!', () => buildApp(options));
+    // await runAyncFunc('building App!', () => buildApp(options));
     await runAyncFunc('copying files!', () => copyFiles(options))
     process.exit(0);
 }
