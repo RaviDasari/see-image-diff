@@ -10,7 +10,7 @@ let buildOptions = {
     publicUrl: '/',
     watch: false,
     bundleNodeModules: true,
-    cache: false,
+    autoInstall: true,
 };
 
 async function buildApp(options = {}) {

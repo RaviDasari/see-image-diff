@@ -7,7 +7,8 @@
     "build": "parcel build web/index.html",
     "start": "parcel serve web/index.html",
     "eslint": "eslint web",
-    "eslint-fix": "eslint web --fix"
+    "eslint-fix": "eslint web --fix",
+    "release": "standard-version"
   },
   "keywords": [
     "image",
@@ -28,7 +29,7 @@
     "chalk": "^4.0.0",
     "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",
@@ -39,6 +40,7 @@
     "parcel": "^2.0.0-alpha.3.2",
     "parcel-plugin-static-files-copy": "^2.3.1",
     "sass": "^1.26.5",
+    "standard-version": "^8.0.0",
     "tslint": "^5.11.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.0.1",
