@@ -2,5 +2,5 @@ node_modules
 .cache
 .history
 .DS_Store
-screenshots
-screenshots1
+dist
+temp

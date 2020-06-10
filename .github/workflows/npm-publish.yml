@@ -17,25 +17,26 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: Setup & Build
+      - name: Setup, Build & Release
         run: |
           npm ci
           rm -rf dist
           npm run build
+          npm run release
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "update dist"
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           force: true
-      - name: Publish & Release
+      - name: Publish
         run: |
-          npm release
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
