@@ -3,6 +3,7 @@
   "version": "0.1.6",
   "description": "Image comparison tool with a nice UI and diff features.",
   "main": "index.html",
+  "default": "dist/index.html",
   "scripts": {
     "build": "parcel build web/index.html --no-source-maps",
     "start": "parcel serve web/index.html",
