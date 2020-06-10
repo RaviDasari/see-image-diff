@@ -21,7 +21,7 @@ jobs:
         run: |
           npm ci
           rm -rf dist
-          npm run build
+          npm run build-ci
           ls #see where the buil files are
       - name: Commit files
         run: |

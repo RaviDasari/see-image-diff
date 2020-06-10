@@ -5,6 +5,7 @@
   "main": "index.html",
   "default": "dist/index.html",
   "scripts": {
+    "build-ci": "NODE_ENV=production node ./scripts/buildApp.js",
     "build": "NODE_ENV=production parcel build --out-dir dist web/index.html --no-source-maps",
     "start": "parcel serve web/index.html",
     "eslint": "eslint web",

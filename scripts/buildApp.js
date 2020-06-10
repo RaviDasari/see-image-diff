@@ -5,12 +5,13 @@ const Path = require('path');
 const entryFiles = Path.join(__dirname, '../web/index.html');
 
 let buildOptions = {
-    outDir: './dist/see-image-diff',
+    outDir: './dist',
     outFile: 'index.html',
     publicUrl: '/',
     watch: false,
-    bundleNodeModules: true,
-    autoInstall: true,
+    // bundleNodeModules: true,
+    // autoInstall: true,
+    sourceMaps: false,
 };
 
 async function buildApp(options = {}) {
@@ -35,4 +36,9 @@ async function buildApp(options = {}) {
 //     ]
 // }
 
-module.exports = buildApp;
+// module.exports = buildApp;
+buildApp().then(() => {
+    console.log('Done !');
+}).catch((e) => {
+    console.log(e);
+})
