@@ -4,7 +4,7 @@
   "description": "Image comparison tool with a nice UI and diff features.",
   "main": "index.html",
   "scripts": {
-    "build": "parcel build web/index.html --out-dir dist --no-source-maps",
+    "build": "parcel build web/index.html --no-source-maps",
     "start": "parcel serve web/index.html",
     "eslint": "eslint web",
     "eslint-fix": "eslint web --fix",
