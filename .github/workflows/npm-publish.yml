@@ -9,22 +9,7 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.1.0
-      - name: Setup & Build
-        run: |
-          npm ci
-          rm -rf dist
-          npm run build
-      # - run: npm test #do this later when we have tests
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,6 +17,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - name: Setup & Build
+        run: |
+          npm ci
+          rm -rf dist
+          npm run build
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
