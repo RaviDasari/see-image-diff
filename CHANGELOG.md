@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.9 (2020-06-10)
+
+
+### Bug Fixes
+
+* add build badge ([04f16a7](https://github.com/RaviDasari/see-image-diff/commit/04f16a7ed24c04a88c840bb0b3f53213284677b9))
+
 ### 0.1.8 (2020-06-10)
 
 
