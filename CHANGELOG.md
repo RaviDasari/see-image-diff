@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.7 (2020-06-10)
+
+
+### Bug Fixes
+
+* version after setting up git config ([53d3da8](https://github.com/RaviDasari/see-image-diff/commit/53d3da821cd7f7675742cdc91579b599d00a4ec1))
+
 ### [0.1.6](https://github.com/RaviDasari/see-image-diff/compare/v0.1.5...v0.1.6) (2020-06-08)
 
 
