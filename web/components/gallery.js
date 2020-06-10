@@ -83,7 +83,7 @@ export default function ImageGallery () {
   return (
     <div className="gallery-container">
       <NavBar 
-        title={`Compare screenshots (${filterList.length})`}
+        title={`SeeImageDiff (${filterList.length})`}
         onFilter={onSearch}
         list={filterList}
         tabs={tabs}
@@ -95,7 +95,8 @@ export default function ImageGallery () {
             gutterSize="l"
             style={{
                 width: '100%',
-                flexWrap: 'wrap'
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
             }}>
           {!isPreview &&
                         filterList.map((data, index) => {
