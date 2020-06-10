@@ -1,7 +1,7 @@
 # See Image Diff
 It takes two folders, *base* and *current* full of wonderful images with same **names** and ganarates a **diff** folder in given destination folder with the same **names**. Also, it generates a **JSON** blob with the comparison info and a *neat* web app to navigate through this image files. This uses [jimp](https://github.com/oliver-moran/jimp) to compare the images which uses an awesome library [pixelmatch](https://github.com/mapbox/pixelmatch).
 
-![Node.js Package](https://github.com/RaviDasari/see-image-diff/workflows/Node.js%20Package/badge.svg)
+![build](https://github.com/RaviDasari/see-image-diff/workflows/Node.js%20Package/badge.svg)
 [![npm version](https://img.shields.io/npm/v/see-image-diff.svg)](https://www.npmjs.com/package/see-image-diff)
 
 
