@@ -1,6 +1,7 @@
 node_modules
 .cache
-.parce-cache
 .history
 .DS_Store
 temp
+.vscode
+.parcel-cache
