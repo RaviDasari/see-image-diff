@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.8 (2020-06-10)
+
+
+### Bug Fixes
+
+* fallback to parcel-bundler api ([cb564f0](https://github.com/RaviDasari/see-image-diff/commit/cb564f08d433e1f574ae90167c3d0a9db1114b48))
+
 ### 0.1.7 (2020-06-10)
 
 
