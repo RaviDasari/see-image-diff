@@ -17,24 +17,12 @@
 }
 
 .thumbnail {
-    cursor: pointer;
-    width: 20%;
-    min-width: 200px;
-    padding: 5px;
-    margin: 5px;
-    background-color: black;
-    display: inline-block;
-    vertical-align: text-top;
+    .euiCard__content {
+        margin-top: 0px; // !important;
+    }
     img {
-        width: 100%;
-    }
-    .caption {
-        word-wrap: break-word;
-        text-align: center;
-    }
-    &.selected {
-        background-color: white;
-        color: black;
+        min-width: 250px;
+        min-height: 135px;
     }
 }
 
@@ -53,11 +41,14 @@
 }
 
 .euiPageBody {
-    margin-top: 50px;
+    margin-top: 45px;
 }
 
 .thumbnail-container {
     margin-top: 20px;
+    &.in-preview {
+        overflow: hidden;
+    }
 }
 
 .no-data-container {
@@ -75,6 +66,7 @@
 
 .selected-card {
     border-color: lightgreen;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .gallery-container {
@@ -89,4 +81,79 @@
 
 .inline-block {
     display: inline-block;
+}
+
+.euiTabs {
+    button {
+        text-decoration: none !important;
+    }
+}
+.euiTab__content {
+    img {
+        margin-right: 5px;
+    }
+}
+
+
+#image-viewer {
+    position: fixed;
+    top: 0;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    color: white;
+
+    .image-title {
+        padding: 10px 40px 0px 10px;
+        .tag {
+            min-width: 75px;
+        }
+    }
+
+    .icon {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+    }
+    .close {
+        top: 0px;
+        right: 0px;
+    }
+    .left {
+        bottom: 0px;
+        left: 0px;
+    }
+    .right {
+        bottom: 0px;
+        right: 0px;
+    }
+    .page-info {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 300px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .image-content {
+        margin-top: auto;
+        margin-bottom: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        max-width: 100%;
+    }
+    .no-preview {
+        max-width: 500px;
+        max-height: 50px;
+    }
 }

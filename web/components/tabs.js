@@ -2,8 +2,28 @@ import React, { useMemo } from 'react'
 import {
   EuiTabs,
   EuiTab,
-  EuiBadge
+  EuiBadge,
+  EuiIcon
 } from '@elastic/eui'
+import Diff from '../assets/diff.svg'
+import Obsolete from '../assets/obsolete.svg'
+import All from '../assets/all.svg'
+import New from '../assets/new.svg'
+
+const Icons = {
+  Diff: Diff,
+  Obsolete: Obsolete,
+  All: All,
+  New: New
+}
+
+function GetIcon ({ type }) {
+  const icon = Icons[type]
+  if (icon) {
+    return <EuiIcon type={icon} />
+  }
+  return null
+}
 
 export function Tabs ({ tabs, onClick, selected }) {
   const renderTabs = useMemo(() => {
@@ -16,7 +36,7 @@ export function Tabs ({ tabs, onClick, selected }) {
   }, [tabs, selected])
 
   return (
-    <EuiTabs size="l">
+    <EuiTabs size="xl">
       {renderTabs.map((tab, index) => {
         return (
           <EuiTab
@@ -25,6 +45,7 @@ export function Tabs ({ tabs, onClick, selected }) {
             isSelected={tab.name === selected}
             disabled={tab.disabled}
             key={tab.name}>
+            <GetIcon type={tab.name}/>
             {tab.name}{tab.hideIcon ? undefined
               : <React.Fragment>
                 &nbsp;&nbsp;

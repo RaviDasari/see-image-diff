@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import { Tabs } from './tabs'
 import _ from 'lodash'
-
 import {
   EuiHeader,
-  EuiComboBox,
-//   EuiHeaderLogo,
-//   EuiSwitch
+  EuiComboBox
+  // EuiSwitch
 } from '@elastic/eui'
 
 // const theme = localStorage.getItem("theme") || 'Dark';
@@ -23,43 +21,47 @@ import {
 // };
 
 export function NavBar ({ title, tabs, list, onClick, selected, onFilter = _.noop }) {
-    const [selectedTags, setSelectedTags] = useState([]);
-    const tags = useMemo(() => {
-        let tokens = [];
-        _.forEach(list, ({file = ''}) => {
-            tokens = _.concat(tokens, file.split(/[.\-_ ><\(\)\[\]]/));
-        });
-        
-        tokens = _.chain(tokens)
-            .compact()
-            .map(_.toLower)
-            .uniq()
-            .sortBy()
-            .map(label => ({label}))
-            .value();
-        return tokens;
-    }, [list])
+  const [selectedTags, setSelectedTags] = useState([])
+  const tags = useMemo(() => {
+    let tokens = []
+    _.forEach(list, ({ file = '' }) => {
+      tokens = _.concat(tokens, file.split(/[.\-_ ><\(\)\[\]]/)) // eslint-disable-line no-useless-escape
+    })
 
-    const onChange = (data) => {
-        setSelectedTags(data);
-        onFilter(_.map(data, 'label'));
-    };
+    tokens = _.chain(tokens)
+      .compact()
+      .map(_.toLower)
+      .uniq()
+      .sortBy()
+      .map(label => ({ label }))
+      .value()
+    return tokens
+  }, [list])
+
+  const onChange = (data) => {
+    setSelectedTags(data)
+    onFilter(_.map(data, 'label'))
+  }
   const sections = [
     {
-      items: [<h1 key="mainHeader">&nbsp;&nbsp;{title}</h1>],
+      items: [
+        <Tabs key="tabs" tabs={tabs} onClick={onClick} selected={selected} />
+      ],
       borders: 'none'
     },
     {
       items: [
         <EuiComboBox
-            style={{width: '100%', minWidth: 500}}
-            placeholder="Start typing..."
-            options={tags}
-            selectedOptions={selectedTags}
-            singleSelection={false}
-            onChange={onChange}
-            isClearable={true}/>,
-        <Tabs key="tabs" tabs={tabs} onClick={onClick} selected={selected}/>
+          key='search'
+          style={{ width: '100%', minWidth: 500 }}
+          placeholder="Start typing..."
+          fullWidth={true}
+          options={tags}
+          selectedOptions={selectedTags}
+          singleSelection={false}
+          onChange={onChange}
+          isClearable={true} />
+
       ],
       borders: 'none'
     }

@@ -1,21 +1,31 @@
 import React from 'react'
 import {
-  EuiCard,
-  EuiFlexItem
+  EuiCard
 } from '@elastic/eui'
+import TrackVisibility from 'react-on-screen'
 
-export function Thumbnail ({ index, data, onSelect, isSelected }) {
+export function Thumbnail ({ index, data, onSelect, isSelected, updateLayout }) {
   const folder = data.hasCurrent ? 'current' : 'base'
   return (
-    <EuiFlexItem className={`thumbnail-${index}`} style={{ minWidth: 200, flexGrow: 0 }}>
+    <div className={`thumbnail thumbnail-${index}`}>
       <EuiCard
         textAlign="left"
         image={
           <div>
-            <img
-              src={`../../${folder}/thumbnails/${data.file}`}
-              alt={data.file}
-            />
+            <TrackVisibility once partialVisibility={true}>
+              {({ isVisible }) => {
+                if (isVisible) {
+                  return (
+                    <img
+                      onLoad={updateLayout}
+                      src={`../../${folder}/thumbnails/${data.file}`}
+                      alt={data.file}/>
+                  )
+                } else {
+                  return <div style={{ height: 270, width: 140 }} />
+                }
+              }}
+            </TrackVisibility>
           </div>
         }
         className={isSelected ? 'selected-card' : undefined}
@@ -23,6 +33,6 @@ export function Thumbnail ({ index, data, onSelect, isSelected }) {
         title={''}
         description={data.file.replace('.png', '')}
       />
-    </EuiFlexItem>
+    </div>
   )
 }
