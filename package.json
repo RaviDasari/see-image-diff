@@ -1,6 +1,6 @@
 {
   "name": "see-image-diff",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Image comparison tool with a nice UI and diff features.",
   "main": "index.html",
   "default": "dist/index.html",
