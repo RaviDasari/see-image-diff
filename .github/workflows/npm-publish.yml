@@ -9,7 +9,24 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Setup & Build
+        run: |
+          npm ci
+          npm run clean
+          npm run build-ci
+      - name: Test
+        run: |
+          npm test
   publish-npm:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

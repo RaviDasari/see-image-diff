@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES6"
+    },
+    "include": [
+        "web/**/*",
+        "tests/**/*"
+    ],
+    "typeAcquisition": {
+        "include": ["jest"]
+    }
+}

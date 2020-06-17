@@ -1,0 +1,34 @@
+[
+    {
+        "file": "duck duck go search.png",
+        "hasBaseline": false,
+        "hasCurrent": true,
+        "hasDiff": false
+    },
+    {
+        "file": "google.png",
+        "hasBaseline": true,
+        "hasCurrent": true,
+        "hasDiff": true,
+        "percent": 0.007518654972582253
+    },
+    {
+        "file": "duck duck go.png",
+        "hasBaseline": true,
+        "hasCurrent": true,
+        "hasDiff": false
+    },
+    {
+        "file": "google batman.png",
+        "hasBaseline": true,
+        "hasCurrent": true,
+        "hasDiff": true,
+        "percent": 0.1265543214107677
+    },
+    {
+        "file": "duck duck go obsolete.png",
+        "hasBaseline": true,
+        "hasCurrent": false,
+        "hasDiff": false
+    }
+]

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const Bundler = require('parcel-bundler');
 const Path = require('path');
 

@@ -71,7 +71,7 @@ async function compareImages(options = {}){
     const allRemoveOps = baselineFiles.map(async file => {
         if (file.indexOf('.png') < 0) return;
         if (!_.find(data, {file})) {
-            console.log(`DEBUG: file`, file)
+            // console.log(`DEBUG: file`, file)
             if (removeOutdatedBaselines) {
                 await fs.unlink(`${baseDir}/${file}`);
             }

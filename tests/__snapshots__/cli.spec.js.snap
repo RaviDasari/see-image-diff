@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CLI help 1`] = `
+Array [
+  "
+Image comparison utility
+
+  It takes two folders, base and current full of images with same names and     
+  ganarates a diff folder in given destination location with the same names.    
+  Also, it generates a JSON blob and a neat web app to navigate through this    
+  image files. It uses jimp npm module to compare the images.                   
+
+Synopsis
+
+  $ see-image-diff --baseDir ./base --currentDir ./current --destDir ./diff     
+  [--reportFileName \\"results.json\\"]                                             
+  $ see-image-diff --help                                                       
+
+Options
+
+  -b, --baseDir folder        Baseline images folder used for comparison.       
+                              Should be flat list of image files. Can contain a 
+                              thumbnail folder with same image names.           
+  -c, --currentDir folder     Current images folder used for comparison. Should 
+                              be flat list of image files. Can contain a        
+                              thumbnail folder with same image names.           
+  -d, --destDir folder        Destination folder to same all the diff images.   
+                              Utility will overwrite any existing files in this 
+                              locaiton.                                         
+  -t, --threshold number      (Optional) Defaults to 0.1. Ranges 0-1.           
+  --reportFileName filename   (Optional) Defaults to report.json.               
+  -h, --help                  Print usage                                       
+
+",
+  "",
+]
+`;
