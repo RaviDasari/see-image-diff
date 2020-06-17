@@ -5,6 +5,9 @@ It takes two folders, *base* and *current* full of wonderful images with same **
 [![npm version](https://img.shields.io/npm/v/see-image-diff.svg)](https://www.npmjs.com/package/see-image-diff)
 
 
+[![Watch the video](https://github.com/RaviDasari/see-image-diff/blob/master/web/assets/see-image-diff.png)](https://youtu.be/EvdLGdjXnQQ)
+
+
 To install...
 ```
 npm install see-image-diff
