@@ -12,6 +12,8 @@ import New from '../assets/new.svg'
 
 const Icons = {
   Diff: Diff,
+  'Diff > 1%': Diff,
+  'Diff > 5%': Diff,
   Obsolete: Obsolete,
   All: All,
   New: New
