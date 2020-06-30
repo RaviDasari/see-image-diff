@@ -1,9 +1,11 @@
 import _ from 'lodash'
 
 export const navTabs = [
-  { name: 'Diff', color: 'danger' },
+  { name: 'Diff', displayName: 'Diff - All', color: 'danger' },
+  { name: '> 1%', color: 'danger' },
+  { name: '> 5%', color: 'danger' },
   { name: 'All', color: 'secondary' },
-  { name: 'Obsolete', color: 'danger' },
+  { name: 'Obsolete', color: '#B9A888' },
   { name: 'New', color: 'warning' }
 ]
 
@@ -14,6 +16,10 @@ export const filterItems = (list, type, searchTerms = []) => {
       isAvailable = true
     } else if (type === 'Diff') {
       isAvailable = item.hasDiff
+    } else if (type === '> 1%') {
+      isAvailable = item.hasDiff && item.percent > 0.01
+    } else if (type === '> 5%') {
+      isAvailable = item.hasDiff && item.percent > 0.05
     } else if (type === 'Obsolete') {
       isAvailable = item.hasBaseline && !item.hasCurrent
     } else if (type === 'New') {
