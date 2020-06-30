@@ -12,8 +12,6 @@ import New from '../assets/new.svg'
 
 const Icons = {
   Diff: Diff,
-  'Diff > 1%': Diff,
-  'Diff > 5%': Diff,
   Obsolete: Obsolete,
   All: All,
   New: New
@@ -38,7 +36,7 @@ export function Tabs ({ tabs, onClick, selected }) {
   }, [tabs, selected])
 
   return (
-    <EuiTabs size="xl">
+    <EuiTabs className="nav-tabs" size="xl">
       {renderTabs.map((tab, index) => {
         return (
           <EuiTab
@@ -48,7 +46,7 @@ export function Tabs ({ tabs, onClick, selected }) {
             disabled={tab.disabled}
             key={tab.name}>
             <GetIcon type={tab.name}/>
-            {tab.name}{tab.hideIcon ? undefined
+            {tab.displayName ? tab.displayName : tab.name}{tab.hideIcon ? undefined
               : <React.Fragment>
                 &nbsp;&nbsp;
                 <EuiBadge color={tab.color}>{tab.count}</EuiBadge>
