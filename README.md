@@ -54,3 +54,4 @@ Options
 * Fix image viewer issues
 * Add zoom option to image viewer
 * Provider a filer server to upload and to manage multiple versions - Requires a lot of effort so might not be coming soon.
+* Need contributors to update the deps and maintain!
