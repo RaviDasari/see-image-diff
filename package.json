@@ -50,7 +50,7 @@
     "jest-junit": "^10.0.0",
     "jest-serializer-html": "6.0.0",
     "node-cmd": "^3.0.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^7.0.0",
     "parcel": "^2.0.0-alpha.3.2",
     "parcel-bundler": "latest",
     "parcel-plugin-static-files-copy": "^2.3.1",
