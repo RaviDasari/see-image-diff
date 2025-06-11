@@ -1,9 +1,10 @@
-const Jimp = require('jimp');
+const jimp = require('jimp');
+const { Jimp } = jimp;
 const fs = require('fs').promises;
-const pSettle = require('p-settle');
+const pSettle = require('p-settle').default;
 const _ = require('lodash');
 const chalk = require('chalk');
-const SYMBOLS = require('log-symbols');
+const SYMBOLS = require('log-symbols').default;
 const {exec} = require('child_process');
 const { fileExists, createFolder, emojify } = require('./utils');
 
@@ -46,7 +47,7 @@ async function compareImages(options = {}){
             const baseline = await Jimp.read(`${baseDir}/${file}`); 
             const current = await Jimp.read(`${currentDir}/${file}`);
             
-            const diff = Jimp.diff(baseline, current, threshold);
+            const diff = jimp.diff(baseline, current, threshold);
             if (diff.percent > 0) {
                 // fail the test in this case
                 item.percent = diff.percent;
