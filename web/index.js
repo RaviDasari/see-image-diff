@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import ImageGallery from './components/gallery'
 import {
   EuiPage,
   EuiPageBody,
-  EuiPageContent,
-  EuiPageContentBody
+  EuiPageSection
 } from '@elastic/eui'
 import './components/icons'
 
@@ -18,16 +17,16 @@ import './index.scss'
 export const App = () => (
   <EuiPage>
     <EuiPageBody component="div">
-      <EuiPageContent>
-        <EuiPageContentBody>
-          <ImageGallery />
-        </EuiPageContentBody>
-      </EuiPageContent>
+      <EuiPageSection>
+        <ImageGallery />
+      </EuiPageSection>
     </EuiPageBody>
   </EuiPage>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(<App />)
 
 // Hot Module Replacement
 if (module.hot) {
