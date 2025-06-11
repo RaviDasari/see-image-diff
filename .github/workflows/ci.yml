@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20, 22]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run eslint
+        continue-on-error: true
+      
+      - name: Run tests
+        run: npm test
+      
+      - name: Test CLI functionality
+        run: |
+          # Create test directories
+          mkdir -p test-baseline test-current test-output
+          
+          # Copy some test images
+          cp tests/data/baseline/*.png test-baseline/ || true
+          cp tests/data/current/*.png test-current/ || true
+          
+          # Test CLI help
+          ./bin.js --help
+          
+          # Test CLI with actual images (if they exist)
+          if [ "$(ls -A test-baseline)" ] && [ "$(ls -A test-current)" ]; then
+            ./bin.js -b test-baseline -c test-current -d test-output
+          fi
