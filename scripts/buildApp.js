@@ -1,45 +1,40 @@
 #!/usr/bin/env node
-const Bundler = require('parcel-bundler');
-const Path = require('path');
-
-// Single entrypoint file location:
-const entryFiles = Path.join(__dirname, '../web/index.html');
-
-let buildOptions = {
-    outDir: './dist',
-    outFile: 'index.html',
-    publicUrl: '/',
-    watch: false,
-    // bundleNodeModules: true,
-    // autoInstall: true,
-    sourceMaps: false,
-};
+const { execSync } = require('child_process');
+const path = require('path');
 
 async function buildApp(options = {}) {
     console.log('Building app...')
-    buildOptions = {
-        ...buildOptions,
-        outDir: options.destDir ? options.destDir : buildOptions.outDir,
-    };
-    // Initializes a bundler using the entrypoint location and options provided
-    const bundler = new Bundler(entryFiles, buildOptions);
-
-    // Run the bundler, this returns the main bundle
-    // Use the events if you're using watch mode as this promise will only trigger once and not for every rebuild
-    const bundle = await bundler.bundle();
-    return bundle;
+    
+    const destDir = options.destDir || './dist';
+    const entryFile = path.join(__dirname, '../web/index.html');
+    
+    try {
+        // Use Parcel v2 CLI to build the project
+        const command = `npx parcel build --dist-dir ${destDir} ${entryFile} --no-source-maps`;
+        console.log(`Running: ${command}`);
+        
+        execSync(command, { 
+            stdio: 'inherit',
+            cwd: path.join(__dirname, '..'),
+            env: { ...process.env, NODE_ENV: 'production' }
+        });
+        
+        console.log('Build completed successfully!');
+        return true;
+    } catch (error) {
+        console.error('Build failed:', error.message);
+        throw error;
+    }
 };
 
-// add below code to package.json if running locally
-// "staticFiles": {
-//     "staticPath": [
-//         "screenshots"
-//     ]
-// }
+module.exports = buildApp;
 
-// module.exports = buildApp;
-buildApp().then(() => {
-    console.log('Done !');
-}).catch((e) => {
-    console.log(e);
-})
+// If this script is run directly (not imported), execute the build
+if (require.main === module) {
+    buildApp().then(() => {
+        console.log('Done !');
+    }).catch((e) => {
+        console.log(e);
+        process.exit(1);
+    });
+}

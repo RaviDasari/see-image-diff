@@ -20,7 +20,7 @@ jobs:
           cache: 'npm'
       - name: Setup & Build
         run: |
-          npm ci
+          npm ci --legacy-peer-deps
           npm run clean
           npm run build-ci
       - name: Test
@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
       - name: Setup, Build & Release
         run: |
-          npm ci
+          npm ci --legacy-peer-deps
           rm -rf dist
           npm run build-ci
           ls #see where the buil files are

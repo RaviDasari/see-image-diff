@@ -2,7 +2,7 @@
 const commandLineUsage = require('command-line-usage')
 const commandLineArgs = require('command-line-args')
 const compareImages = require('./scripts/compareImages');
-// const buildApp = require('./scripts/buildApp')
+const buildApp = require('./scripts/buildApp')
 const copyFiles = require('./scripts/copyFiles')
 
 const optionList = [
@@ -107,7 +107,7 @@ function runAyncFunc(message, runner) {
 
 async function runActions(options) {
     await runAyncFunc('comparing images!', () => compareImages(options));
-    // await runAyncFunc('building App!', () => buildApp(options));
+    await runAyncFunc('building App!', () => buildApp(options));
     await runAyncFunc('copying files!', () => copyFiles(options))
     process.exit(0);
 }

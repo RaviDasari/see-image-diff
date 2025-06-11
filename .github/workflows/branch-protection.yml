@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       
       - name: Check code style (linting)
         run: |
@@ -95,7 +95,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       
       - name: Run tests on Node.js ${{ matrix.node-version }}
         run: npm test
