@@ -13,11 +13,20 @@ async function buildApp(options = {}) {
         const command = `npx parcel build --dist-dir ${destDir} ${entryFile} --no-source-maps`;
         console.log(`Running: ${command}`);
         
-        execSync(command, { 
-            stdio: 'inherit',
+        // In test environment, suppress verbose output
+        const isTestEnv = process.env.SEE_IMAGE_DIFF_NODE_ENV === 'test';
+        const stdio = isTestEnv ? 'pipe' : 'inherit';
+        
+        const result = execSync(command, { 
+            stdio: stdio,
             cwd: path.join(__dirname, '..'),
             env: { ...process.env, NODE_ENV: 'production' }
         });
+        
+        // In test environment, only show errors if any
+        if (isTestEnv && result && result.toString().toLowerCase().includes('error')) {
+            console.error('Build output contained errors:', result.toString());
+        }
         
         console.log('Build completed successfully!');
         return true;

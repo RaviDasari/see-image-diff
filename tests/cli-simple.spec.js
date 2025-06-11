@@ -46,6 +46,16 @@ describe('CLI Basic Tests', function () {
     test('generate diff images and copy dist files', async () => {
         const results = await runCommand('./bin.js -b tests/data/baseline -c tests/data/current -d temp');
         const resultString = _.isArray(results) ? _.first(results) : results;
+        
+        // Debug: log the actual output in case of CI issues
+        if (process.env.CI || process.env.GITHUB_ACTIONS) {
+            console.log('=== CLI OUTPUT DEBUG ===');
+            console.log('Type:', typeof resultString);
+            console.log('Length:', resultString ? resultString.length : 'null/undefined');
+            console.log('Content:', JSON.stringify(resultString));
+            console.log('=== END DEBUG ===');
+        }
+        
         // order could change, so we need to assert each item separately
         const expectedData = [
             'Comparing images...',
