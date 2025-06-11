@@ -1,12 +1,22 @@
 import Promise from 'bluebird'
 import cmd from 'node-cmd'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import expectedReport from './data/report.json'
 import StaticServer from 'static-server';
 import puppeteer from 'puppeteer';
 import _ from 'lodash';
 
-const runCommand = Promise.promisify(cmd.get, { multiArgs: true, context: cmd })
+const runCommand = (command) => {
+    return new Promise((resolve, reject) => {
+        cmd.run(command, (err, data, stderr) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+}
 
 const server = new StaticServer({
     rootPath: __dirname + '/../temp',            // required, the root of the server file tree
@@ -30,23 +40,27 @@ const startServer = () => {
 describe('CLI', function () {
     beforeAll(async () => {
         // cleanup temp folder
-        rimraf(__dirname + '/../temp', () => {
+        try {
+            await rimraf(__dirname + '/../temp');
             // console.log('Cleaned up temp folder')
-        });
+        } catch (e) {
+            // ignore if folder doesn't exist
+        }
         browser = await puppeteer.launch({
-            // headless: false,
-            // args: ['--start-fullscreen']
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
-        // rimraf(__dirname + '/../dist', () => {
-        //     console.log('Cleaned up dist folder')
-        // })
+        // await rimraf(__dirname + '/../dist');
+        // console.log('Cleaned up dist folder')
         // await runCommand('npm run build-ci');
     })
 
-    afterAll(() => {
+    afterAll(async () => {
         try {
             server.stop();
-            browser.close();
+            if (browser) {
+                await browser.close();
+            }
         } catch (e) {
             console.log(e)
         }
