@@ -60,7 +60,8 @@ describe('CLI Basic Tests', function () {
         const expectedData = [
             'Comparing images...',
             'Successfully done comparing images!',
-            'Successfully done copying files!',
+            // 'Successfully done copying files!',
+            'Successfully done building App!',
         ];
         _.forEach(expectedData, i => {
             expect(resultString).toContain(i);
