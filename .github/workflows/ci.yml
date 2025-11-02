@@ -24,6 +24,8 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
         run: npm ci --legacy-peer-deps
       
       - name: Check code style (linting)
