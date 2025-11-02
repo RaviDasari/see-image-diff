@@ -29,6 +29,9 @@ jobs:
   publish-npm:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -46,7 +49,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          npm run release
+          npx release-please release-pr --repo-url=https://github.com/RaviDasari/see-image-diff --token=${{ secrets.GITHUB_TOKEN }}
           git push --follow-tags origin master
 
       - name: Push changes
