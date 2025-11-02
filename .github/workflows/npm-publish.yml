@@ -44,19 +44,13 @@ jobs:
           npm ci --legacy-peer-deps
           rm -rf dist
           npm run build-ci
-          ls #see where the buil files are
-      - name: Commit files
+          ls #see where the build files are
+      - name: Create Release PR
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           npx release-please release-pr --repo-url=https://github.com/RaviDasari/see-image-diff --token=${{ secrets.GITHUB_TOKEN }}
-          git push --follow-tags origin master
 
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          force: true
       - name: Publish
         run: |
           npm publish
