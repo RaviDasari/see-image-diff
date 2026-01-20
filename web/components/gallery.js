@@ -4,6 +4,7 @@ import axios from 'axios'
 import _ from 'lodash'
 import { scrollItemIntoView } from '../utils'
 import { useSelectedImage } from '../hooks/useSelectedImage'
+import { useSetCursorToWait } from '../hooks/useSetCursorToWait'
 import {
   EuiLoadingSpinner,
   EuiText,
@@ -70,7 +71,6 @@ export default function ImageGallery () {
 
   const updateLayout = useCallback(_.debounce(() => {
     if (stackedGridRef.current) {
-      console.log('update called really')
       stackedGridRef.current.updateLayout()
     }
   }, 250, { maxWait: 2000 }), [])
@@ -89,6 +89,8 @@ export default function ImageGallery () {
   const closePreview = useCallback(() => {
     setPreview(false)
   })
+
+  const [ resetCursorToDefault ] = useSetCursorToWait([tab]);
 
   if (isLoading) {
     return (
@@ -109,13 +111,15 @@ export default function ImageGallery () {
         onClick={setTab}
         selected={tab}/>
       <div>
+        {!isPreview && filterList.length != 0 &&
         <StackGrid
           ref={stackedGridRef}
+          onLayout={resetCursorToDefault}
           gutterWidth={10}
           gutterHeight={10}
           className={`thumbnail-container ${isPreview ? 'in-preview' : ''}`}
           columnWidth={columnWidth}>
-          {!isPreview && filterList.map((data, index) => {
+          {filterList.map((data, index) => {
             return (
               <Thumbnail
                 isSelected={index === currentSelected}
@@ -126,15 +130,15 @@ export default function ImageGallery () {
                 updateLayout={updateLayout}/>
             )
           })}
-        </StackGrid>
+        </StackGrid>}
         {!isPreview && filterList.length === 0 &&
-            <div className="no-data-container">
-              <EuiText>
-                <EuiTextAlign textAlign="center">
-                  <p>No Data available</p>
-                </EuiTextAlign>
-              </EuiText>
-            </div>}
+        <div className="no-data-container">
+            <EuiText>
+            <EuiTextAlign textAlign="center">
+                <p>No Data available</p>
+            </EuiTextAlign>
+            </EuiText>
+        </div>}
       </div>
       {isPreview &&
             <ImageViewer {...selectedItem} index={currentSelected} total={filterList.length} closeModal={closePreview}/>

@@ -36,7 +36,7 @@ export function Tabs ({ tabs, onClick, selected }) {
   }, [tabs, selected])
 
   return (
-    <EuiTabs className="nav-tabs" size="xl">
+    <EuiTabs size="xl">
       {renderTabs.map((tab, index) => {
         return (
           <EuiTab
